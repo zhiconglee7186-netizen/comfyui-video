@@ -1,0 +1,122 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 874122277942370,
+      "steps": 50,
+      "cfg": 4.98,
+      "sampler_name": "dpmpp_3m_sde_gpu",
+      "scheduler": "exponential",
+      "denoise": 1,
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "stable-audio-open-1.0.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "Minimal premium product ad background music, 100 BPM, modern clean mix, soft synth pad, warm pluck melody, muted percussion, gentle sidechain, subtle bass, spacious reverb, crisp highs, smooth dynamics, loopable, uplifting but calm, no vocals.",
+      "clip": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "vocals, singing, speech, rap, harsh distortion, heavy bass drop, aggressive drums, chaotic melody, lo-fi noise, crowd sounds, sirens, long intro, abrupt ending, clipping.",
+      "clip": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "10": {
+    "inputs": {
+      "clip_name": "t5_base.safetensors",
+      "type": "stable_audio",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "11": {
+    "inputs": {
+      "seconds": 10,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentAudio",
+    "_meta": {
+      "title": "空Latent音频"
+    }
+  },
+  "12": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAE解码（音频）"
+    }
+  },
+  "19": {
+    "inputs": {
+      "AudioPlay": {
+        "__value__": [
+          "/api/view?filename=._00001_.wav&type=temp&subfolder=&rand=0.8890770463771743",
+          null
+        ]
+      },
+      "audio": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "AudioPlay",
+    "_meta": {
+      "title": "Audio Play ♾️Mixlab"
+    }
+  }
+}
