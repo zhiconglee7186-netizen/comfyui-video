@@ -1,2 +1,0 @@
-# comfyui-video
-python
